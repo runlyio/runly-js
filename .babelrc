@@ -9,6 +9,13 @@
 				  "node": "current"
 				}
 			}], "@babel/react"]
+		},
+		"web":{
+			"presets": [["@babel/env", {
+				"targets": {
+				  "browsers": "defaults"
+				}
+			}], "@babel/react"]
 		}
 	}
 }

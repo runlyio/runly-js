@@ -14,7 +14,10 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				use: {
-					loader: "babel-loader"
+					loader: "babel-loader",
+					options: {
+						envName: "web"
+					}
 				},
 				include: [path.resolve("./src")]
 			}
