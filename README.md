@@ -1,3 +1,3 @@
-# Runly JS Components
+# Runly React Components
 
-> Javascript components to connect to Runly
+> React components to connect to Runly
