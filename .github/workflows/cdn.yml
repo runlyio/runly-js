@@ -1,0 +1,28 @@
+name: CDN
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  upload:
+    name: Upload to Azure Blob Storage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - uses: Saionaro/extract-package-version@v1.1.0
+        id: pkg
+      
+      - run: npm i
+      - run: npm run bundle
+
+      - uses: runlyio/azure-versioned-storage@v1
+        with:
+          sourceDir: dist
+          version: v${{ steps.pkg.outputs.version }}
+          container: runlyjs
+          storageSasUrl: ${{ secrets.STORAGE_SAS_URL }}

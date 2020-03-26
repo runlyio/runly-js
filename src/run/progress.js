@@ -4,7 +4,7 @@ import useRunConnection from "./hub";
 const RunProgress = ({ org, runId }) => {
 	const { run } = useRunConnection(org, runId);
 
-	return <textarea>{JSON.stringify(run)}</textarea>;
+	return <pre>{JSON.stringify(run, null, 2)}</pre>;
 };
 
 export default RunProgress;
