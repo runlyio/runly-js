@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+
+import { useConfig } from "../context";
 import useChannel from "../channel";
 
 const useRunConnection = (org, runId) => {
 	const [run, setRun] = useState();
+	const { url, accessToken } = useConfig();
 
 	const { connection, ...connectionState } = useChannel(
-		`${process.env.API_URL}/${org}/runs/${runId}/channel`
+		`${url}/${org}/runs/${runId}/channel`,
+		accessToken
 	);
 
 	useEffect(() => {
