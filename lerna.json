@@ -1,7 +1,8 @@
 {
   "packages": [
     "cdn",
-    "react"
+    "react",
+    "example"
   ],
   "version": "independent"
 }

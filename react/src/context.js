@@ -17,6 +17,13 @@ export const Provider = ({
 };
 
 export const useConfig = () => {
-	const cfg = useContext(RunlyConfigContext) || {};
+	const cfg = useContext(RunlyConfigContext);
+
+	if (!cfg) {
+		throw new Error(
+			"Missing Runly context. Make sure to include a RunlyProvider component up your component tree with your access token."
+		);
+	}
+
 	return cfg;
 };

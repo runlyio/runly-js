@@ -1,0 +1,32 @@
+{
+  "name": "@runly/example",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Example app that uses the JS components",
+  "sideEffects": false,
+  "scripts": {
+    "start": "gatsby develop",
+    "lint": "eslint src",
+    "clean": "gatsby clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runlyio/runly-js.git"
+  },
+  "author": "Runly LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/runlyio/runly-js/issues"
+  },
+  "homepage": "https://github.com/runlyio/runly-js#readme",
+  "dependencies": {
+    "@runly/react": "0.1.1",
+    "bootstrap": "^4.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "gatsby": "^2.20.9"
+  }
+}
