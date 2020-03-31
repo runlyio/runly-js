@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/runlyio/js.git"
+    "url": "git+https://github.com/runlyio/runly-js.git"
   },
   "author": "Runly LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/runlyio/js/issues"
+    "url": "https://github.com/runlyio/runly-js/issues"
   },
-  "homepage": "https://github.com/runlyio/js#readme",
+  "homepage": "https://github.com/runlyio/runly-js#readme",
   "dependencies": {
     "@microsoft/signalr": "^3.1.2"
   },
