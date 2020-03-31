@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { RunlyProvider } from "@runly/react";
+import { RunlyProvider } from "@runly/react-bootstrap";
 
 const Layout = ({ children }) => {
 	const {

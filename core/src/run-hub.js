@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import { useConfig } from "../context";
-import useChannel from "../channel";
+import { useConfig } from "./context";
+import useChannel from "./channel";
 
 const useRunConnection = (org, runId) => {
 	const [run, setRun] = useState();

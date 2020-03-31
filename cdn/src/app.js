@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 
-import { RunlyProvider, RunProgress } from "@runly/react";
+import { RunlyProvider, RunProgress } from "@runly/react-bootstrap";
 
 const runs = document.querySelectorAll("[data-runly-run]");
 

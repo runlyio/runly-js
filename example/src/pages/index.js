@@ -3,7 +3,7 @@ import React, { useState, useCallback } from "react";
 import Layout from "../layout";
 import RunForm from "../run-form";
 
-import { RunProgress } from "@runly/react";
+import { RunProgress } from "@runly/react-bootstrap";
 
 const ExamplePage = () => {
 	const [run, setRun] = useState();

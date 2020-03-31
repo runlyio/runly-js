@@ -16,7 +16,11 @@ module.exports = {
 				use: {
 					loader: "babel-loader"
 				},
-				include: [path.resolve("./src"), path.resolve("../react/src")]
+				include: [
+					path.resolve("./src"),
+					path.resolve("../core/src"),
+					path.resolve("../react-bootstrap/src")
+				]
 			}
 		]
 	}

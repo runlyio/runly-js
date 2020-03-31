@@ -1,13 +1,16 @@
 {
-  "name": "@runly/example",
-  "private": true,
+  "name": "@runly/core",
   "version": "0.1.0",
-  "description": "Example Gatsby app that incorporates each set of Runly components",
+  "description": "Core components to connect to Runly",
+  "main": "lib/index.js",
+  "module": "src/index.js",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "start": "gatsby develop",
-    "lint": "eslint src",
-    "clean": "gatsby clean"
+    "compile": "rimraf lib && babel src -d lib",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -20,13 +23,14 @@
   },
   "homepage": "https://github.com/runlyio/runly-js#readme",
   "dependencies": {
-    "@runly/react-bootstrap": "0.1.0",
-    "bootstrap": "^4.4.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@microsoft/signalr": "^3.1.2"
+  },
+  "peerDependencies": {
+    "react": "16.x"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "eslint": "^6.8.0",
-    "gatsby": "^2.20.9"
+    "rimraf": "^3.0.2"
   }
 }

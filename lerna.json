@@ -1,7 +1,8 @@
 {
   "packages": [
     "cdn",
-    "react",
+    "core",
+    "react-bootstrap",
     "example"
   ],
   "version": "independent"

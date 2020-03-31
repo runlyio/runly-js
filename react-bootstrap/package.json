@@ -1,7 +1,7 @@
 {
-  "name": "@runly/react",
+  "name": "@runly/react-bootstrap",
   "version": "0.1.0",
-  "description": "React components to connect to Runly",
+  "description": "Bootstrap-styled react components to connect to Runly",
   "main": "lib/index.js",
   "module": "src/index.js",
   "sideEffects": false,
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/runlyio/runly-js#readme",
   "dependencies": {
-    "@microsoft/signalr": "^3.1.2"
+    "@runly/core": "0.1.0"
   },
   "peerDependencies": {
     "react": "16.x"

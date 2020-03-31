@@ -1,5 +1,5 @@
 import React from "react";
-import useRunConnection from "./hub";
+import { useRunConnection } from "@runly/core";
 
 const RunProgress = ({ org, runId }) => {
 	const { run } = useRunConnection(org, runId);
