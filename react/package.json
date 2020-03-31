@@ -5,6 +5,9 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "compile": "rimraf lib && babel src -d lib",
     "lint": "eslint src"
