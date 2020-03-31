@@ -9,7 +9,7 @@ This repository is monorepo for all of the JS component libraries that connect t
 * [`cdn`](./cdn): Prebuilt CDN script that can be dropped on a page to include Runly components
 * [`example`](./example): Example Gatsby app that incorporates each set of Runly components
 
-[Read the documentation](https://www.runly.io/docs/integration/runly-js/) to learn how to integrate runly.js into your application.
+[Learn how to integrate runly.js](https://www.runly.io/docs/integration/runly-js/) into your application.
 
 ## Running Locally
 
