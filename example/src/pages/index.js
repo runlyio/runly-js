@@ -1,4 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
+
+import useLocalStorage from "../local-storage";
 
 import Layout from "../layout";
 import RunForm from "../run-form";
@@ -6,17 +8,26 @@ import RunForm from "../run-form";
 import { RunProgress } from "@runly/react-bootstrap";
 
 const ExamplePage = () => {
-	const [run, setRun] = useState();
-	const onRunSelected = useCallback(run => setRun(run), []);
+	const [run, setRun] = useLocalStorage("runly-run");
+	const onRunSelected = useCallback(run => setRun(run), [setRun]);
+	const onReset = useCallback(() => setRun(null), [setRun]);
 
 	return (
 		<Layout>
 			{!run ? (
 				<RunForm onSubmit={onRunSelected} />
 			) : (
-				<span>
+				<>
+					<h1>
+						{run.org}/{run.runId}
+					</h1>
 					<RunProgress {...run} />
-				</span>
+
+					<hr />
+					<button type="button" className="btn btn-secondary" onClick={onReset}>
+						Reset
+					</button>
+				</>
 			)}
 		</Layout>
 	);
