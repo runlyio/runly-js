@@ -1,5 +1,6 @@
 {
   "name": "@runly/cdn",
+  "private": true,
   "version": "0.1.0",
   "description": "Prebuilt CDN script that can be dropped on a page to include Runly components",
   "sideEffects": false,
