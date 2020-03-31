@@ -14,7 +14,8 @@ jobs:
         with:
           node-version: '12.x'
 
-      - uses: runlyio/extract-package-version@configure-path
+      - name: Extract Package Version
+        uses: runlyio/extract-package-version@configure-path
         with:
           path: cdn
         id: pkg
@@ -28,7 +29,8 @@ jobs:
         run: npm run bundle
         working-directory: cdn
 
-      - uses: runlyio/azure-versioned-storage@v1
+      - name: Upload Assets
+        uses: runlyio/azure-versioned-storage@v1
         with:
           sourceDir: cdn/dist
           version: v${{ steps.pkg.outputs.version }}
