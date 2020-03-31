@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   compile:
-    name: Lint & Compile
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -11,6 +11,11 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm i
-    - run: npm run lint
-    - run: npm run compile
+
+    - name: Install Dependencies
+      run: |
+        npm install
+        npm run bootstrap
+
+    - name: Lint
+      run: npm run lint

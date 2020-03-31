@@ -1,9 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 
-import { Provider } from "./context";
-
-import RunProgress from "./run/progress";
+import { RunlyProvider, RunProgress } from "@runly/react";
 
 const runs = document.querySelectorAll("[data-runly-run]");
 
@@ -13,9 +11,9 @@ runs.forEach(el => {
 	const token = el.dataset.runlyToken;
 
 	render(
-		<Provider accessToken={token}>
+		<RunlyProvider accessToken={token}>
 			<RunProgress {...{ org, runId }} />
-		</Provider>,
+		</RunlyProvider>,
 		el
 	);
 });

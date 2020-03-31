@@ -14,15 +14,23 @@ jobs:
         with:
           node-version: '12.x'
 
-      - uses: Saionaro/extract-package-version@v1.1.0
+      - uses: runlyio/extract-package-version@configure-path
+        with:
+          path: cdn
         id: pkg
-      
-      - run: npm i
-      - run: npm run bundle
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm run bootstrap
+
+      - name: Bundle
+        run: npm run bundle
+        working-directory: cdn
 
       - uses: runlyio/azure-versioned-storage@v1
         with:
-          sourceDir: dist
+          sourceDir: cdn/dist
           version: v${{ steps.pkg.outputs.version }}
           container: runlyjs
           storageSasUrl: ${{ secrets.STORAGE_SAS_URL }}

@@ -1,0 +1,32 @@
+{
+  "name": "@runly/cdn",
+  "version": "0.1.0",
+  "description": "Prebuilt CDN script that can be dropped on a page to include Runly components",
+  "sideEffects": false,
+  "scripts": {
+    "lint": "eslint webpack.config.js src",
+    "bundle": "rimraf dist && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runlyio/js.git"
+  },
+  "author": "Runly LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/runlyio/js/issues"
+  },
+  "homepage": "https://github.com/runlyio/js#readme",
+  "dependencies": {
+    "@runly/react": "0.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}

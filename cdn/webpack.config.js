@@ -12,14 +12,11 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.jsx?$/,
+				test: /\.js$/,
 				use: {
-					loader: "babel-loader",
-					options: {
-						envName: "web"
-					}
+					loader: "babel-loader"
 				},
-				include: [path.resolve("./src")]
+				include: [path.resolve("./src"), path.resolve("../react/src")]
 			}
 		]
 	}
