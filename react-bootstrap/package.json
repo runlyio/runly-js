@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/runlyio/runly-js#readme",
   "dependencies": {
-    "@runly/core": "0.1.0"
+    "@runly/core": "0.1.0",
+    "react-fetch-hooks": "^3.0.0"
   },
   "peerDependencies": {
     "react": "16.x"

@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from "react";
+import { OrgChooser } from "@runly/react-bootstrap";
 
 const RunForm = ({ onSubmit }) => {
 	const [org, setOrg] = useState("");
-	const onOrgChange = useCallback(ev => setOrg(ev.target.value), []);
+	const onOrgChange = useCallback(o => setOrg(o), []);
 
 	const [runId, setRunId] = useState("");
 	const onRunChange = useCallback(ev => setRunId(ev.target.value), []);
@@ -20,15 +21,8 @@ const RunForm = ({ onSubmit }) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div className="form-group">
-				<label htmlFor="org">Organization ID</label>
-				<input
-					type="text"
-					className="form-control"
-					id="org"
-					value={org}
-					onChange={onOrgChange}
-					required
-				/>
+				<label htmlFor="org">Organization</label>
+				<OrgChooser id="org" onChange={onOrgChange} />
 			</div>
 
 			<div className="form-group">
