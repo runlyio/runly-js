@@ -30,9 +30,9 @@ jobs:
         working-directory: cdn
 
       - name: Upload Assets
-        uses: runlyio/azure-versioned-storage@v1
+        uses: runlyio/azure-versioned-storage@v2
         with:
           sourceDir: cdn/dist
           version: v${{ steps.pkg.outputs.version }}
           container: runlyjs
-          storageSasUrl: ${{ secrets.STORAGE_SAS_URL }}
+          connectionString: ${{ secrets.AZURE_STORAGE }}
