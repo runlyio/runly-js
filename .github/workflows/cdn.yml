@@ -15,7 +15,7 @@ jobs:
           node-version: '12.x'
 
       - name: Extract Package Version
-        uses: runlyio/extract-package-version@configure-path
+        uses: Saionaro/extract-package-version@v1.1.1
         with:
           path: cdn
         id: pkg
