@@ -1,7 +1,7 @@
 {
   "name": "@runly/example",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Example Gatsby app that incorporates each set of Runly components",
   "sideEffects": false,
   "scripts": {
@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/runlyio/runly-js#readme",
   "dependencies": {
-    "@runly/core": "0.1.0",
-    "@runly/react-bootstrap": "0.1.0",
+    "@runly/core": "^0.1.1",
+    "@runly/react-bootstrap": "^0.1.1",
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
