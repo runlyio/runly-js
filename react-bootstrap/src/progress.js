@@ -13,8 +13,6 @@ const RunProgress = ({ org, runId }) => {
 		return <LoadingIndicator />;
 	}
 
-	console.log(run);
-
 	return (
 		<>
 			<h4>
