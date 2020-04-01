@@ -91,7 +91,9 @@ const useChannel = (url, accessToken) => {
 			dispatch({ type: "connected", payload: connection });
 		}
 
-		connect();
+		if (accessToken) {
+			connect();
+		}
 
 		return () => {
 			disposed = true;

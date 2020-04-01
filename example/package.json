@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/runlyio/runly-js#readme",
   "dependencies": {
+    "@runly/core": "0.1.0",
     "@runly/react-bootstrap": "0.1.0",
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",

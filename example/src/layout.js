@@ -1,28 +1,9 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
-import { RunlyProvider } from "@runly/react-bootstrap";
-
-const Layout = ({ children }) => {
-	const {
-		site: {
-			siteMetadata: { accessToken }
-		}
-	} = useStaticQuery(graphql`
-		query Wrapper {
-			site {
-				siteMetadata {
-					accessToken
-				}
-			}
-		}
-	`);
-
-	return (
-		<main role="main" className="container" style={{ marginTop: "5em" }}>
-			<RunlyProvider accessToken={accessToken}>{children}</RunlyProvider>
-		</main>
-	);
-};
+const Layout = ({ children }) => (
+	<main role="main" className="container" style={{ marginTop: "5em" }}>
+		{children}
+	</main>
+);
 
 export default Layout;
