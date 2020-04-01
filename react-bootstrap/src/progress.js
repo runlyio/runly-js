@@ -1,45 +1,143 @@
 import React from "react";
 import { useRunConnection } from "@runly/core";
 
+import { formatNumber } from "accounting";
+import { startCase } from "lodash";
+
+import LoadingIndicator from "./loading";
+
 const RunProgress = ({ org, runId }) => {
 	const { run } = useRunConnection(org, runId);
+
+	if (!run) {
+		return <LoadingIndicator />;
+	}
 
 	console.log(run);
 
 	return (
-		<div className="progress">
-			<div
-				className="progress-bar progress-bar-striped progress-bar-animated"
-				role="progressbar"
-				style={{ width: "15%" }}
-				aria-valuenow="15"
-				aria-valuemin="0"
-				aria-valuemax="100"
-			>
-				15%
-			</div>
-			<div
-				className="progress-bar bg-success progress-bar-striped progress-bar-animated"
-				role="progressbar"
-				style={{ width: "30%" }}
-				aria-valuenow="30"
-				aria-valuemin="0"
-				aria-valuemax="100"
-			>
-				30%
-			</div>
-			<div
-				className="progress-bar bg-info progress-bar-striped progress-bar-animated"
-				role="progressbar"
-				style={{ width: "20%" }}
-				aria-valuenow="20"
-				aria-valuemin="0"
-				aria-valuemax="100"
-			>
-				20%
-			</div>
-		</div>
+		<>
+			<h4>
+				<span className={`badge badge${typeFromStatus(run.state)}`}>
+					{startCase(run.state)}
+				</span>
+			</h4>
+			<ProgressBar run={run} />
+		</>
 	);
 };
+
+const ProgressBar = ({ run }) => {
+	if (isProgressEmpty(run.progress)) {
+		return null;
+	}
+
+	return (
+		<>
+			<div className="progress">
+				<Progress
+					isRunning={run.state == "Running"}
+					isSuccess
+					value={run.progress.success}
+					total={run.progress.total}
+				/>
+				<Progress
+					isRunning={run.state == "Running"}
+					value={run.progress.failed}
+					total={run.progress.total}
+				/>
+			</div>
+			<ProgressText {...run.progress} />
+		</>
+	);
+};
+
+const Progress = ({ isRunning, isSuccess, value, total }) => {
+	if (!value) return null;
+
+	const percentage = (value / total) * 100.0;
+
+	return (
+		<div
+			className={`progress-bar ${isSuccess ? "bg-success" : "bg-danger"} ${
+				isRunning ? "progress-bar-striped progress-bar-animated" : ""
+			}`}
+			role="progressbar"
+			style={{ width: `${percentage}%` }}
+			aria-valuenow={value}
+			aria-valuemin={value}
+			aria-valuemax={total}
+		></div>
+	);
+};
+
+const ProgressText = ({ success, failed, total }) => {
+	let text = "";
+
+	if (success && success === total) {
+		return (
+			<small className="text-muted">
+				{formatNumber(success)} successful items
+			</small>
+		);
+	}
+
+	if (failed && failed === total) {
+		return (
+			<small className="text-muted">{formatNumber(failed)} failed items</small>
+		);
+	}
+
+	if (success) {
+		text += `${formatNumber(success)} successful`;
+	}
+
+	if (failed) {
+		if (text) {
+			text += `, ${formatNumber(failed)} failed`;
+		} else {
+			text += `${formatNumber(failed)} failed`;
+		}
+	}
+
+	if (total) {
+		if (text) {
+			text += ` out of ${formatNumber(total)}`;
+		} else {
+			text += `${formatNumber(total)} unprocessed`;
+		}
+	}
+
+	if (!text) return null;
+
+	return <small className="text-muted">{text}</small>;
+};
+
+function typeFromStatus(runStatus) {
+	switch (runStatus) {
+		case "Enqueued":
+			return "-secondary";
+		case "Running":
+			return "-primary";
+		case "Successful":
+			return "-success";
+		case "Failed":
+			return "-danger";
+		case "Cancelled":
+			return "-warning";
+		case "TimedOut":
+			return "-danger";
+		case "Error":
+			return "-danger";
+		default:
+			return "";
+	}
+}
+
+function isProgressEmpty(progress) {
+	if (!progress) return true;
+	if (!progress.success && !progress.failed && !progress.total) return true;
+	return false;
+}
 
 export default RunProgress;
