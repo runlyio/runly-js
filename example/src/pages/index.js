@@ -28,6 +28,8 @@ const ExamplePage = ({ location }) => {
 					<h1>
 						{run.org}/{run.runId}
 					</h1>
+
+					<hr />
 					<RunProgress {...run} />
 
 					<hr />

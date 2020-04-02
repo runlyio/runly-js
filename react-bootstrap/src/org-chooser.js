@@ -1,17 +1,6 @@
 import React, { useEffect, useCallback } from "react";
-import { useFetch } from "react-fetch-hooks";
 
-import { useCurrentAccessToken, useApiUrl } from "@runly/core";
-
-const useFetchOrgAccounts = () => {
-	const url = useApiUrl();
-	const bearerToken = useCurrentAccessToken();
-
-	return useFetch(url && bearerToken ? `${url}/account/orgs/` : null, {
-		method: "GET",
-		bearerToken
-	});
-};
+import { useFetchOrgAccounts } from "@runly/core";
 
 const OrgChooser = ({ onChange, ...props }) => {
 	const { isFetched, body: orgs } = useFetchOrgAccounts();

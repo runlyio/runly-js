@@ -1,35 +1,43 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { useRunConnection } from "@runly/core";
 
 import { formatNumber } from "accounting";
 import { startCase } from "lodash";
 
 import LoadingIndicator from "./loading";
+import RetryButton from "./retry";
 
 const RunProgress = ({ org, runId }) => {
-	const { run } = useRunConnection(org, runId);
+	const [retryRunId, setRetryRunId] = useState();
+	const onRequeued = useCallback(r => setRetryRunId(r.id), []);
+
+	const { run } = useRunConnection(org, retryRunId || runId);
 
 	if (!run) {
 		return <LoadingIndicator />;
 	}
 
-	return (
-		<>
+	if (isProgressEmpty(run.progress)) {
+		return (
 			<h4>
 				<span className={`badge badge${typeFromStatus(run.state)}`}>
 					{startCase(run.state)}
 				</span>
 			</h4>
+		);
+	}
+
+	return (
+		<>
 			<ProgressBar run={run} />
+			<p>
+				<RetryButton {...{ org, run, onRequeued }} />
+			</p>
 		</>
 	);
 };
 
 const ProgressBar = ({ run }) => {
-	if (isProgressEmpty(run.progress)) {
-		return null;
-	}
-
 	return (
 		<>
 			<div className="progress">
