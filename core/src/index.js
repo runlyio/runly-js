@@ -1,5 +1,3 @@
-export { default as useChannel } from "./channel";
-
 export {
 	Provider as RunlyProvider,
 	useApiUrl,
