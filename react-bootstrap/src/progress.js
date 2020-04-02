@@ -7,7 +7,7 @@ import { startCase } from "lodash";
 import LoadingIndicator from "./loading";
 import RetryButton from "./retry";
 
-const RunProgress = ({ org, runId }) => {
+const RunProgress = ({ org, runId, allowRetry = true }) => {
 	const [retryRunId, setRetryRunId] = useState();
 	const onRequeued = useCallback(r => setRetryRunId(r.id), []);
 
@@ -30,9 +30,11 @@ const RunProgress = ({ org, runId }) => {
 	return (
 		<>
 			<ProgressBar run={run} />
-			<p>
-				<RetryButton {...{ org, run, onRequeued }} />
-			</p>
+			{allowRetry ? (
+				<p>
+					<RetryButton {...{ org, run, onRequeued }} />
+				</p>
+			) : null}
 		</>
 	);
 };
