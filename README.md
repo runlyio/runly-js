@@ -36,3 +36,13 @@ To run the example app:
 cd example
 npm start
 ```
+
+## Publishing
+
+To publish all changed packages, run:
+
+```
+npx lerna publish
+```
+
+This will ask you for a major/minor/patch version bump for each changed package since the last release. It will then publish the changes to npm, tag the release, and push all the changes to the repo.
