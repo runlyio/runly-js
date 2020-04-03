@@ -42,9 +42,7 @@ function convertRunlyProps(runlyProps) {
 
 	for (let propName in runlyProps) {
 		if (propName.startsWith("runly")) {
-			const length = "runly".length;
-			props[propName.substring(length, propName.length - length)] =
-				runlyProps[propName];
+			props[propName.substring(5, propName.length)] = runlyProps[propName];
 		}
 	}
 
