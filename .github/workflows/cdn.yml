@@ -17,7 +17,7 @@ jobs:
       - name: Extract Package Version
         uses: Saionaro/extract-package-version@v1.1.1
         with:
-          path: cdn
+          path: html
         id: pkg
 
       - name: Install Dependencies
@@ -27,12 +27,12 @@ jobs:
 
       - name: Bundle
         run: npm run bundle
-        working-directory: cdn
+        working-directory: html
 
       - name: Upload Assets
         uses: runlyio/azure-versioned-storage@v2
         with:
-          sourceDir: cdn/dist
+          sourceDir: html/dist
           version: v${{ steps.pkg.outputs.version }}
           container: runlyjs
           connectionString: ${{ secrets.AZURE_STORAGE }}
