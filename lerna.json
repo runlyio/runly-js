@@ -14,6 +14,15 @@
   },
   "changelog": {
     "repo": "runlyio/runly-js",
-    "cacheDir": ".changelog"
+    "cacheDir": ".changelog",
+    "labels": {
+      "Breaking Change :boom:": ":boom: Breaking Change",
+      "New Feature :rocket:": ":rocket: New Feature",
+      "Bug Fix :bug:": ":bug: Bug Fix",
+      "Refactoring :nail_care:": ":nail_care: Refactoring",
+      "Docs :memo:": ":memo: Documentation",
+      "Internal :house:": ":house: Internal",
+      "Performance :running_woman:": ":running_woman: Performance"
+    }
   }
 }
