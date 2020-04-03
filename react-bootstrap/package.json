@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/runlyio/runly-js/issues"
   },
-  "homepage": "https://www.runly.io/docs/integration/runly-js/react-bootstrap/",
+  "homepage": "https://www.runly.io/docs/integration/js/react-bootstrap/",
   "dependencies": {
     "@runly/core": "^0.1.2",
     "accounting": "^0.4.1",

@@ -27,7 +27,7 @@ export const Provider = ({
 }) => {
 	if (!isFunction(children)) {
 		throw new Error(
-			"Children of AuthProvider must be a render function that takes the access token accessor. See https://www.runly.io/docs/integration/runly-js/"
+			"Children of AuthProvider must be a render function that takes the access token accessor. See https://www.runly.io/docs/integration/js/"
 		);
 	}
 

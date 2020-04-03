@@ -4,7 +4,7 @@
 
 This integration is intended for maximum ease-of-use for server-rendered pages that have very little scripting already on the page.
 
-[Learn how to use the runly.js HTML integration](https://www.runly.io/docs/integration/runly-js/html/) in your application.
+[Learn how to use the runly.js HTML integration](https://www.runly.io/docs/integration/js/html/) in your application.
 
 ## Building Locally
 
