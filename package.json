@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap --hoist && lerna run compile",
+    "bootstrap": "lerna bootstrap --hoist",
     "lint": "lerna run lint"
   },
   "devDependencies": {

@@ -10,7 +10,9 @@
   },
   "scripts": {
     "compile": "rimraf lib && babel src -d lib",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepublish": "npm run compile",
+    "prepublishOnly": "npm run lint"
   },
   "repository": {
     "type": "git",
