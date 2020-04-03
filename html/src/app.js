@@ -27,6 +27,7 @@ componentsToRender.forEach(el => {
 	}
 
 	const props = convertRunlyProps(runlyProps);
+	console.log({ runlyProps, props });
 
 	render(
 		<RunlyProvider accessToken={runlyToken}>
