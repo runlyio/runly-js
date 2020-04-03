@@ -42,9 +42,15 @@ function convertRunlyProps(runlyProps) {
 
 	for (let propName in runlyProps) {
 		if (propName.startsWith("runly")) {
-			props[propName.substring(5, propName.length)] = runlyProps[propName];
+			props[convertAttrName(propName)] = runlyProps[propName];
 		}
 	}
 
 	return props;
+}
+
+function convertAttrName(name) {
+	let propName = name.substring(5, name.length);
+	propName = propName.charAt(0).toLowerCase() + name.substring(1);
+	return propName;
 }
