@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/runlyio/runly-js/issues"
   },
-  "homepage": "https://github.com/runlyio/runly-js#readme",
+  "homepage": "https://js.runly.io/",
   "dependencies": {
     "@runly/core": "^0.1.2",
     "@runly/react-bootstrap": "^0.1.2",
