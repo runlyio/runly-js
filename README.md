@@ -28,15 +28,6 @@ To lint the whole workspace:
 npm run lint
 ```
 
-### Run Example
-
-To run the example app:
-
-```
-cd example
-npm start
-```
-
 ## Publishing
 
 To publish all changed packages, run:
