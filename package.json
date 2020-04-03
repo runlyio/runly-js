@@ -3,9 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runlyio/runly-js.git"
+  },
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "changelog": "lerna-changelog"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -16,6 +21,7 @@
     "core-js": "^3.6.4",
     "cross-env": "^7.0.2",
     "lerna": "^3.20.2",
+    "lerna-changelog": "^1.0.1",
     "prettier": "^2.0.1"
   }
 }

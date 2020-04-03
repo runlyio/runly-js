@@ -4,3 +4,4 @@ yarn.lock
 /lib
 /es
 /dist
+/.changelog

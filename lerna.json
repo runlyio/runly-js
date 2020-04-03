@@ -11,5 +11,9 @@
     "publish": {
       "message": ":shipit: Publish"
     }
+  },
+  "changelog": {
+    "repo": "runlyio/runly-js",
+    "cacheDir": ".changelog"
   }
 }
