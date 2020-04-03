@@ -51,6 +51,6 @@ function convertRunlyProps(runlyProps) {
 
 function convertAttrName(name) {
 	let propName = name.substring(5, name.length);
-	propName = propName.charAt(0).toLowerCase() + name.substring(1);
+	propName = propName.charAt(0).toLowerCase() + propName.substring(1);
 	return propName;
 }
