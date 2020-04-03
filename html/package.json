@@ -1,7 +1,7 @@
 {
   "name": "@runly/html",
   "private": true,
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Prebuilt script that can be dropped on any HTML page to include Runly components",
   "sideEffects": false,
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "homepage": "https://www.runly.io/docs/integration/js/html/",
   "dependencies": {
-    "@runly/react-bootstrap": "^0.1.2",
+    "@runly/react-bootstrap": "^0.1.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
