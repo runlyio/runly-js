@@ -7,7 +7,7 @@ This repository is a monorepo for all of the JS component libraries that connect
 * [`core`](./core): Core components to connect to Runly
 * [`react-bootstrap`](./react-bootstrap): [Bootstrap](https://getbootstrap.com/)-styled react components to connect to Runly
 * [`html`](./html): Prebuilt script that can be dropped on any HTML page to include Runly components
-* [`example`](./example): Example [Gatsby](https://www.gatsbyjs.org/) app that incorporates each set of Runly components
+* [Examples](./examples): Example applications that incorporate each set of runly.js components
 
 [Learn how to integrate runly.js](https://www.runly.io/docs/integration/js/) into your application.
 

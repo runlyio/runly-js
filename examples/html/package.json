@@ -1,0 +1,25 @@
+{
+  "name": "@runly/example-html",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Example HTML app that incorporates the Vanilla JS components",
+  "sideEffects": false,
+  "scripts": {
+    "copy-assets": "copy ../../html/dist/**/* ./assets",
+    "start": "npm run copy-assets && http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runlyio/runly-js.git"
+  },
+  "author": "Runly LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/runlyio/runly-js/issues"
+  },
+  "homepage": "https://js.runly.io/",
+  "devDependencies": {
+    "copy": "~0.3.2",
+    "http-server": "~0.12.1"
+  }
+}

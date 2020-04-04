@@ -3,7 +3,8 @@
     "core",
     "react-bootstrap",
     "html",
-    "example"
+    "examples/gatsby",
+    "examples/html"
   ],
   "version": "independent",
   "command": {
