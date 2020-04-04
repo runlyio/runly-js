@@ -1,10 +1,10 @@
-# Runly.js Example Application
+# Runly.js Example Gatsby Application
 
-> Example Gatsby app that incorporates each set of react-based runly.js components
+> Example [Gatsby](https://www.gatsbyjs.org/) app that incorporates each set of react-based runly.js components
 
 ## Running Locally
 
-After cloning the repo and [installing dependencies](../../README.md#running-locally):
+After cloning the repo and [installing dependencies](../../README.md#rocket-running-locally):
 
 ```
 npm start

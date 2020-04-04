@@ -4,7 +4,7 @@
 
 ## Running Locally
 
-After cloning the repo and [installing dependencies](../../README.md#running-locally):
+After cloning the repo and [installing dependencies](../../README.md#rocket-running-locally):
 
 ```
 npm start

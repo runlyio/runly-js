@@ -8,7 +8,7 @@ This integration is intended for maximum ease-of-use for server-rendered pages t
 
 ## Building Locally
 
-After cloning the repo and [installing dependencies](../README.md#running-locally):
+After cloning the repo and [installing dependencies](../README.md#rocket-running-locally):
 
 ```
 npm run bundle
