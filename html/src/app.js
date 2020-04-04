@@ -1,40 +1,41 @@
-import React from "react";
-import { render } from "react-dom";
-
-import { RunlyProvider, RunProgress } from "@runly/react-bootstrap";
-
-const components = {
-	RunProgress
-};
-
 const componentsToRender = document.querySelectorAll("[data-runly-component]");
 
-componentsToRender.forEach(el => {
-	const { runlyComponent, runlyToken, ...runlyProps } = el.dataset;
+if (componentsToRender.length) {
+	initRunlyComponents();
+}
 
-	const ComponentToRender = components[runlyComponent];
+async function initRunlyComponents() {
+	const RunlyComponents = await import("@runly/react-bootstrap");
+	const React = await import("react");
+	const ReactDOM = await import("react-dom");
 
-	if (!ComponentToRender) {
-		throw new Error(
-			`Unrecognized runly component name: ${runlyComponent}. Check your data-runly-component attribute.`
+	componentsToRender.forEach(el => {
+		const { runlyComponent, runlyToken, ...runlyProps } = el.dataset;
+
+		const ComponentToRender = RunlyComponents[runlyComponent];
+
+		if (!ComponentToRender) {
+			throw new Error(
+				`Unrecognized runly component name: ${runlyComponent}. Check your data-runly-component attribute.`
+			);
+		}
+
+		if (!runlyToken) {
+			throw new Error(
+				`Missing required data attribute runly-token for ${runlyComponent} component. Make sure to include data-runly-token on your HTML elements.`
+			);
+		}
+
+		const props = convertRunlyProps(runlyProps);
+
+		ReactDOM.render(
+			<RunlyProvider accessToken={runlyToken}>
+				<ComponentToRender {...props} />
+			</RunlyProvider>,
+			el
 		);
-	}
-
-	if (!runlyToken) {
-		throw new Error(
-			`Missing required data attribute runly-token for ${runlyComponent} component. Make sure to include data-runly-token on your HTML elements.`
-		);
-	}
-
-	const props = convertRunlyProps(runlyProps);
-
-	render(
-		<RunlyProvider accessToken={runlyToken}>
-			<ComponentToRender {...props} />
-		</RunlyProvider>,
-		el
-	);
-});
+	});
+}
 
 function convertRunlyProps(runlyProps) {
 	const props = {};
