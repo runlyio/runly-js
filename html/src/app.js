@@ -9,6 +9,8 @@ async function initRunlyComponents() {
 	const React = await import("react");
 	const ReactDOM = await import("react-dom");
 
+	const { RunlyProvider } = RunlyComponents;
+
 	componentsToRender.forEach(el => {
 		const { runlyComponent, runlyToken, ...runlyProps } = el.dataset;
 
