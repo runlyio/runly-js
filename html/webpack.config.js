@@ -11,7 +11,7 @@ module.exports = {
 		// to serve locally:
 		// npm run bundle && serve dist -l 8000
 		publicPath:
-			process.env.NODE_ENV === "production"
+			process.env.NODE_ENV !== "debug"
 				? `https://cdn.runly.io/v${version}/`
 				: "http://localhost:8000/"
 	},
