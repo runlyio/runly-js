@@ -61,19 +61,19 @@ async function initRunlyComponents() {
 	);
 }
 
-function convertRunlyProps(runlyProps) {
+function convertRunlyProps(runlyProps, ns = "runly") {
 	const props = {};
 
 	for (let propName in runlyProps) {
-		if (propName.startsWith("runly")) {
-			props[convertAttrName(propName)] = runlyProps[propName];
+		if (propName.startsWith(ns)) {
+			props[convertAttrName(propName, ns)] = runlyProps[propName];
 		}
 	}
 
 	return props;
 }
 
-function convertAttrName(name, ns = "runly") {
+function convertAttrName(name, ns) {
 	const [, propName] = name.split(ns);
 	const [initial, ...rest] = propName;
 
