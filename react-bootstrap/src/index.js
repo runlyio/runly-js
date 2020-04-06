@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useContext } from "react";
+import React, { useEffect, useState, createContext, useContext } from "react";
 
 import { RunlyProvider } from "@runly/core";
 
@@ -6,8 +6,6 @@ export { default as RunProgress } from "./progress";
 export { default as OrgChooser } from "./org-chooser";
 
 const RunlyReactBootstrapContext = createContext();
-
-let hasbs4 = undefined;
 
 const bs4test = () => {
 	let result = null;
@@ -27,23 +25,21 @@ const bs4test = () => {
 };
 
 export const RunlyReactBootstrapProvider = ({ props, ...children }) => {
+	const [hasBs4, setHasBs4] = useState(null);
 	useEffect(() => {
-		if (typeof hasbs4 === "undefined") {
-			hasbs4 = bs4test();
+		if (hasBs4 === null) {
+			setHasBs4(bs4test());
 		}
-	}, []);
+	}, [hasBs4]);
 
 	return (
 		<RunlyProvider {...props}>
-			{runlyProps => (
-				<RunlyReactBootstrapContext.Provider
-					{...props}
-					{...runlyProps}
-					hasbs4={hasbs4}
-				>
-					{children}
-				</RunlyReactBootstrapContext.Provider>
-			)}
+			<RunlyReactBootstrapContext.Provider
+				{...props}
+				value={{ hasBs4, setHasBs4 }}
+			>
+				{children}
+			</RunlyReactBootstrapContext.Provider>
 		</RunlyProvider>
 	);
 };
