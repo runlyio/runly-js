@@ -1,7 +1,9 @@
 import React, { useEffect, createContext, useContext } from "react";
+
+import { RunlyProvider } from "@runly/core";
+
 export { default as RunProgress } from "./progress";
 export { default as OrgChooser } from "./org-chooser";
-import { RunlyProvider } from "@runly/core";
 
 const RunlyReactBootstrapContext = createContext();
 
@@ -17,14 +19,14 @@ const bs4test = () => {
 		el.setAttribute("class", "d-inline");
 
 		document.body.appendChild(el);
-		result = (getComputedStyle(el) === "inline");
+		result = getComputedStyle(el) === "inline";
 		document.body.removeChild(el);
 	}
 
 	return result;
-}
+};
 
-const RunlyReactBootstrapProvider = ({props,...children}) => {
+export const RunlyReactBootstrapProvider = ({ props, ...children }) => {
 	useEffect(() => {
 		if (typeof hasbs4 === "undefined") {
 			hasbs4 = bs4test();
@@ -44,11 +46,11 @@ const RunlyReactBootstrapProvider = ({props,...children}) => {
 			)}
 		</RunlyProvider>
 	);
-}
+};
 
-const useBsConfig = () => {
+export const useBsConfig = () => {
 	const cfg = useContext(RunlyReactBootstrapContext);
-}
+	return cfg;
+};
 
 // for convenience
-export { RunlyProvider } from "@runly/core";
