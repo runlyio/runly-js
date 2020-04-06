@@ -1,18 +1,34 @@
-const componentsToRender = document.querySelectorAll("[data-runly-component]");
+const matchedEls = document.querySelectorAll("[data-runly-component]");
 
-if (componentsToRender.length) {
+let rootEl;
+
+if (matchedEls.length) {
+	if (!rootEl) {
+		rootEl = document.createElement("div");
+		rootEl.setAttribute("id", "runly-root");
+		document.body.appendChild(rootEl);
+	}
 	initRunlyComponents();
 }
 
 async function initRunlyComponents() {
+	let componentsToRender = [];
+	let runlyToken;
 	const RunlyComponents = await import("@runly/react-bootstrap");
 	const React = await import("react");
 	const ReactDOM = await import("react-dom");
 
 	const { RunlyProvider } = RunlyComponents;
 
-	componentsToRender.forEach(el => {
-		const { runlyComponent, runlyToken, ...runlyProps } = el.dataset;
+	matchedEls.forEach(el => {
+		const {
+			runlyComponent,
+			runlyToken: _runlyToken,
+			...runlyProps
+		} = el.dataset;
+		if (!runlyToken) {
+			runlyToken = _runlyToken;
+		}
 
 		const ComponentToRender = RunlyComponents[runlyComponent];
 
@@ -30,13 +46,19 @@ async function initRunlyComponents() {
 
 		const props = convertRunlyProps(runlyProps);
 
-		ReactDOM.render(
-			<RunlyProvider accessToken={runlyToken}>
-				<ComponentToRender {...props} />
-			</RunlyProvider>,
-			el
-		);
+		componentsToRender.push({ component: ComponentToRender, el, ...props });
 	});
+
+	ReactDOM.render(
+		<RunlyProvider accessToken={runlyToken}>
+			<>
+				{componentsToRender.map(({ component: Component, el, ...props }) =>
+					ReactDOM.createPortal(<Component {...props} />, el)
+				)}
+			</>
+		</RunlyProvider>,
+		rootEl
+	);
 }
 
 function convertRunlyProps(runlyProps) {
