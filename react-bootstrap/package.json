@@ -1,6 +1,6 @@
 {
   "name": "@runly/react-bootstrap",
-  "version": "0.1.3",
+  "version": "0.1.4-bstest",
   "description": "Bootstrap-styled react components to connect to Runly",
   "main": "lib/index.js",
   "module": "src/index.js",
