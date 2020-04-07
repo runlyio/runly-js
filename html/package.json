@@ -19,7 +19,7 @@
   },
   "homepage": "https://www.runly.io/docs/integration/js/html/",
   "dependencies": {
-    "@runly/react-bootstrap": "^0.1.3",
+    "@runly/react-bootstrap": "0.1.4-bstest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
