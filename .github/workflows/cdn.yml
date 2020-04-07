@@ -26,7 +26,7 @@ jobs:
           npm run bootstrap
 
       - name: Bundle
-        run: npm run bundle
+        run: NODE_ENV=production npm run bundle
         working-directory: html
 
       - name: Upload Assets
