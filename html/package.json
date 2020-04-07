@@ -1,12 +1,13 @@
 {
   "name": "@runly/html",
   "private": true,
-  "version": "0.2.1-bstest-lazy-4",
+  "version": "0.2.1-bstest-lazy-5",
   "description": "Prebuilt script that can be dropped on any HTML page to include Runly components",
   "sideEffects": false,
   "scripts": {
     "lint": "eslint webpack.config.js src",
-    "bundle": "rimraf dist && webpack"
+    "bundle": "rimraf dist && webpack",
+    "watch": "rimraf dist && webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

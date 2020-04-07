@@ -3,7 +3,7 @@ const version = require("./package.json").version;
 const path = require("path");
 
 module.exports = {
-	mode: "production",
+	mode: "development",
 	entry: "./src/app.js",
 	output: {
 		path: path.resolve(__dirname, "dist"),
@@ -11,7 +11,7 @@ module.exports = {
 		// to serve locally:
 		// npm run bundle && serve dist -l 8000
 		publicPath:
-			process.env.NODE_ENV !== "debug"
+			process.env.NODE_ENV === "production"
 				? `https://cdn.runly.io/v${version}/`
 				: "http://localhost:8000/"
 	},

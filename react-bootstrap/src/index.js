@@ -17,14 +17,14 @@ const bs4test = () => {
 		el.setAttribute("class", "d-inline");
 
 		document.body.appendChild(el);
-		result = getComputedStyle(el) === "inline";
+		result = getComputedStyle(el).display === "inline";
 		document.body.removeChild(el);
 	}
 
 	return result;
 };
 
-export const RunlyReactBootstrapProvider = ({ props, ...children }) => {
+export const RunlyReactBootstrapProvider = ({ children, ...props }) => {
 	const [hasBs4, setHasBs4] = useState(null);
 	useEffect(() => {
 		if (hasBs4 === null) {
@@ -34,10 +34,7 @@ export const RunlyReactBootstrapProvider = ({ props, ...children }) => {
 
 	return (
 		<RunlyProvider {...props}>
-			<RunlyReactBootstrapContext.Provider
-				{...props}
-				value={{ hasBs4, setHasBs4 }}
-			>
+			<RunlyReactBootstrapContext.Provider value={{ hasBs4, setHasBs4 }}>
 				{children}
 			</RunlyReactBootstrapContext.Provider>
 		</RunlyProvider>
