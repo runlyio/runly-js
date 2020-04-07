@@ -47,6 +47,10 @@ async function initRunlyComponents() {
 		const props = convertRunlyProps(runlyProps);
 
 		componentsToRender.push({ component: ComponentToRender, el, ...props });
+
+		// Surprisingly enough createPortal doesn't,
+		// necessarily remove existing children
+		removeChildren(el);
 	});
 
 	ReactDOM.render(
@@ -79,3 +83,8 @@ function convertAttrName(name, ns) {
 
 	return `${initial.toLowerCase()}${rest.join("")}`;
 }
+const removeChildren = el => {
+	while (el.firstChild) {
+		el.removeChild(el.firstChild);
+	}
+};
