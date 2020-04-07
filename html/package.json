@@ -1,7 +1,7 @@
 {
   "name": "@runly/html",
   "private": true,
-  "version": "0.2.1-bstest-lazy-3",
+  "version": "0.2.1-bstest-lazy-4",
   "description": "Prebuilt script that can be dropped on any HTML page to include Runly components",
   "sideEffects": false,
   "scripts": {

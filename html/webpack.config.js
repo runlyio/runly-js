@@ -1,5 +1,5 @@
 /* eslint-disable import/no-commonjs */
-const version = require("../package.json").version;
+const version = require("./package.json").version;
 const path = require("path");
 
 module.exports = {
