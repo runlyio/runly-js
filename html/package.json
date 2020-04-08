@@ -6,7 +6,8 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint webpack.config.js src",
-    "bundle": "rimraf dist && webpack"
+    "bundle": "rimraf dist && webpack",
+    "watch": "rimraf dist && webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
