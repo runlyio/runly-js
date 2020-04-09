@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { useRunConnection } from "@runly/core";
+import { useRunConnection, ProgressText } from "@runly/core";
 
-import { formatNumber } from "accounting";
 import { startCase } from "lodash";
 
 import LoadingIndicator from "./loading";
@@ -55,7 +54,11 @@ const ProgressBar = ({ run }) => {
 					total={run.progress.total}
 				/>
 			</div>
-			<ProgressText {...run.progress} />
+			<ProgressText
+				progress={run.progress}
+				component="small"
+				className="text-muted"
+			/>
 		</>
 	);
 };
@@ -77,48 +80,6 @@ const Progress = ({ isRunning, isSuccess, value, total }) => {
 			aria-valuemax={total}
 		></div>
 	);
-};
-
-const ProgressText = ({ success, failed, total }) => {
-	let text = "";
-
-	if (success && success === total) {
-		return (
-			<small className="text-muted">
-				{formatNumber(success)} successful items
-			</small>
-		);
-	}
-
-	if (failed && failed === total) {
-		return (
-			<small className="text-muted">{formatNumber(failed)} failed items</small>
-		);
-	}
-
-	if (success) {
-		text += `${formatNumber(success)} successful`;
-	}
-
-	if (failed) {
-		if (text) {
-			text += `, ${formatNumber(failed)} failed`;
-		} else {
-			text += `${formatNumber(failed)} failed`;
-		}
-	}
-
-	if (total) {
-		if (text) {
-			text += ` out of ${formatNumber(total)}`;
-		} else {
-			text += `${formatNumber(total)} unprocessed`;
-		}
-	}
-
-	if (!text) return null;
-
-	return <small className="text-muted">{text}</small>;
 };
 
 function typeFromStatus(runStatus) {

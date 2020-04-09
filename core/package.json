@@ -27,6 +27,7 @@
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.6.5",
     "@microsoft/signalr": "^3.1.2",
+    "accounting": "^0.4.1",
     "lodash": "^4.17.15",
     "react-fetch-hooks": "^3.0.0",
     "urijs": "^1.19.2"
