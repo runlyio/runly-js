@@ -1,11 +1,9 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useEffect, useState } from "react";
 
 import { RunlyProvider } from "@runly/core";
 
 export { default as RunProgress } from "./progress";
 export { default as OrgChooser } from "./org-chooser";
-
-const RunlyReactBootstrapContext = createContext();
 
 const bs4test = () => {
 	let result = null;
@@ -17,7 +15,7 @@ const bs4test = () => {
 		el.setAttribute("class", "d-inline");
 
 		document.body.appendChild(el);
-		result = getComputedStyle(el).display === "inline";
+		result = window.getComputedStyle(el).display === "inline";
 		document.body.removeChild(el);
 	}
 
@@ -25,6 +23,15 @@ const bs4test = () => {
 };
 
 export const RunlyReactBootstrapProvider = ({ children, ...props }) => {
+	return (
+		<>
+			<BootstrapStyles />
+			<RunlyProvider {...props}>{children}</RunlyProvider>
+		</>
+	);
+};
+
+const BootstrapStyles = async () => {
 	const [hasBs4, setHasBs4] = useState(null);
 	useEffect(() => {
 		if (hasBs4 === null) {
@@ -32,18 +39,19 @@ export const RunlyReactBootstrapProvider = ({ children, ...props }) => {
 		}
 	}, [hasBs4]);
 
-	return (
-		<RunlyProvider {...props}>
-			<RunlyReactBootstrapContext.Provider value={{ hasBs4, setHasBs4 }}>
-				{children}
-			</RunlyReactBootstrapContext.Provider>
-		</RunlyProvider>
-	);
-};
+	if (!hasBs4) {
+		const Helmet = await import("react-helmet");
 
-export const useBsConfig = () => {
-	const cfg = useContext(RunlyReactBootstrapContext);
-	return cfg;
+		return (
+			<Helmet>
+				<link
+					rel="stylesheet"
+					href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+					integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+					crossOrigin="anonymous"
+				/>
+			</Helmet>
+		);
+	}
+	return null;
 };
-
-// for convenience
