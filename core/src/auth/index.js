@@ -6,6 +6,11 @@ import { useEffect, useCallback } from "react";
 
 import { useAuth, Provider } from "./context";
 
+export const useIsAuthenticated = () => {
+	const { isAuthenticated } = useAuth();
+	return isAuthenticated;
+};
+
 export const useLogin = location => {
 	const { client, isAuthenticated } = useAuth();
 	const isInitialized = !!client;
