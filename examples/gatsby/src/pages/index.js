@@ -8,6 +8,8 @@ import RunForm from "../run-form";
 import { useLogin } from "@runly/core";
 import { RunProgress } from "@runly/react-bootstrap";
 
+import "bootstrap/dist/css/bootstrap.css";
+
 const ExamplePage = ({ location }) => {
 	const [run, setRun] = useLocalStorage("runly-run");
 	const onRunSelected = useCallback(run => setRun(run), [setRun]);
