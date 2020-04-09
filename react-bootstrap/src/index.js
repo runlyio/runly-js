@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Helmet from "react-helmet";
 
-import { RunlyProvider } from "@runly/core";
+export { RunlyProvider } from "@runly/core";
 
 export { default as RunProgress } from "./progress";
 export { default as OrgChooser } from "./org-chooser";
@@ -23,16 +23,7 @@ const bs4test = () => {
 	return result;
 };
 
-export const RunlyReactBootstrapProvider = ({ children, ...props }) => {
-	return (
-		<>
-			<BootstrapStyles />
-			<RunlyProvider {...props}>{children}</RunlyProvider>
-		</>
-	);
-};
-
-const BootstrapStyles = () => {
+export const BootstrapStyles = () => {
 	const [hasBs4, setHasBs4] = useState(null);
 	useEffect(() => {
 		if (hasBs4 === null) {
