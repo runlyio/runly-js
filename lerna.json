@@ -2,6 +2,7 @@
   "packages": [
     "core",
     "react-bootstrap",
+    "react-material",
     "html",
     "examples/gatsby",
     "examples/html"
