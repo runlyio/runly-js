@@ -22,8 +22,9 @@ export const Provider = ({ accessToken, url = DEFAULT_API_URL, children }) => {
 	);
 };
 
-const useConfig = () => {
+export const useConfig = () => {
 	const cfg = useContext(RunlyConfigContext);
+	const [token, setToken] = useState();
 
 	if (!cfg) {
 		throw new Error(
@@ -31,17 +32,7 @@ const useConfig = () => {
 		);
 	}
 
-	return cfg;
-};
-
-export const useApiUrl = () => {
-	const { url } = useConfig();
-	return url;
-};
-
-export const useCurrentAccessToken = () => {
-	const { accessToken } = useConfig();
-	const [token, setToken] = useState();
+	const { url, accessToken } = cfg;
 
 	// accessToken could be a promise or a function
 	useEffect(() => {
@@ -58,5 +49,5 @@ export const useCurrentAccessToken = () => {
 		}
 	}, [accessToken]);
 
-	return token;
+	return { url, token };
 };

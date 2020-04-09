@@ -1,7 +1,6 @@
 export {
 	Provider as RunlyProvider,
-	useApiUrl,
-	useCurrentAccessToken
+	useConfig as useRunlyConfig
 } from "./config";
 
 export { default as useRunConnection } from "./run-hub";

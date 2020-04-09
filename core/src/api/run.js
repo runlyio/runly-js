@@ -1,16 +1,15 @@
 import { useLazyFetch } from "react-fetch-hooks";
 
-import { useCurrentAccessToken, useApiUrl } from "../config";
+import { useConfig } from "../config";
 
 export const useRequeueRun = (org, runId) => {
-	const url = useApiUrl();
-	const bearerToken = useCurrentAccessToken();
+	const { url, token } = useConfig();
 
 	return useLazyFetch(
-		url && bearerToken && org && runId ? `${url}/${org}/runs/${runId}` : null,
+		url && token && org && runId ? `${url}/${org}/runs/${runId}` : null,
 		{
 			method: "POST",
-			bearerToken
+			token
 		}
 	);
 };

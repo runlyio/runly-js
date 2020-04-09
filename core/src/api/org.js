@@ -1,13 +1,12 @@
 import { useFetch } from "react-fetch-hooks";
 
-import { useCurrentAccessToken, useApiUrl } from "../config";
+import { useConfig } from "../config";
 
 export const useFetchOrgAccounts = () => {
-	const url = useApiUrl();
-	const bearerToken = useCurrentAccessToken();
+	const { url, token } = useConfig();
 
-	return useFetch(url && bearerToken ? `${url}/account/orgs/` : null, {
+	return useFetch(url && token ? `${url}/account/orgs/` : null, {
 		method: "GET",
-		bearerToken
+		token
 	});
 };
