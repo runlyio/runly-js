@@ -1,0 +1,40 @@
+{
+  "name": "@runly/react-material",
+  "version": "0.1.0",
+  "description": "Runly react components implemented with Material UI",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "compile": "rimraf lib && babel src -d lib",
+    "lint": "eslint src",
+    "prepublish": "npm run compile",
+    "prepublishOnly": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runlyio/runly-js.git"
+  },
+  "author": "Runly LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/runlyio/runly-js/issues"
+  },
+  "homepage": "https://www.runly.io/docs/integration/js/react-material/",
+  "dependencies": {
+    "@runly/core": "^0.1.3",
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "react": "16.x",
+    "@material-ui/core": "4.x"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "eslint": "^6.8.0",
+    "rimraf": "^3.0.2"
+  }
+}

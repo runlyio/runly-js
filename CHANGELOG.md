@@ -4,6 +4,7 @@ Runly.js is distributed as a [monorepo][monorepo] using [lerna][lerna]. This mea
 
 * [`@runly/core`](./core/CHANGELOG.md)
 * [`@runly/react-bootstrap`](./react-bootstrap/CHANGELOG.md)
+* [`@runly/react-material`](./react-material/CHANGELOG.md)
 * [HTML Integration](./html/CHANGELOG.md)
 
 [monorepo]: https://en.wikipedia.org/wiki/Monorepo
