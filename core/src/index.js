@@ -5,6 +5,7 @@ export {
 } from "./config";
 
 export { default as useRunConnection } from "./run-hub";
+export { default as useChannel } from "./channel";
 
 export * from "./auth";
 
