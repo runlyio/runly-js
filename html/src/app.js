@@ -18,7 +18,7 @@ async function initRunlyComponents() {
 	const React = await import("react");
 	const ReactDOM = await import("react-dom");
 
-	const { RunlyReactBootstrapProvider } = RunlyComponents;
+	const { RunlyProvider, BootstrapStyles } = RunlyComponents;
 
 	matchedEls.forEach(el => {
 		const {
@@ -54,13 +54,14 @@ async function initRunlyComponents() {
 	});
 
 	ReactDOM.render(
-		<RunlyReactBootstrapProvider accessToken={runlyToken}>
+		<RunlyProvider accessToken={runlyToken}>
 			<>
+				<BootstrapStyles />
 				{componentsToRender.map(({ component: Component, el, ...props }) => {
 					return ReactDOM.createPortal(<Component {...props} />, el);
 				})}
 			</>
-		</RunlyReactBootstrapProvider>,
+		</RunlyProvider>,
 		rootEl
 	);
 }
