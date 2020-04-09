@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 
 import { RunlyProvider } from "@runly/core";
 
@@ -31,7 +32,7 @@ export const RunlyReactBootstrapProvider = ({ children, ...props }) => {
 	);
 };
 
-const BootstrapStyles = async () => {
+const BootstrapStyles = () => {
 	const [hasBs4, setHasBs4] = useState(null);
 	useEffect(() => {
 		if (hasBs4 === null) {
@@ -40,8 +41,6 @@ const BootstrapStyles = async () => {
 	}, [hasBs4]);
 
 	if (!hasBs4) {
-		const Helmet = await import("react-helmet");
-
 		return (
 			<Helmet>
 				<link
