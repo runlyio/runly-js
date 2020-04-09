@@ -1,6 +1,6 @@
 {
   "name": "@runly/react-bootstrap",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Bootstrap-styled react components to connect to Runly",
   "main": "lib/index.js",
   "module": "src/index.js",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://www.runly.io/docs/integration/js/react-bootstrap/",
   "dependencies": {
-    "@runly/core": "^0.1.3",
+    "@runly/core": "^0.2.0",
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
