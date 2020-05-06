@@ -11,18 +11,18 @@ export const useIsAuthenticated = () => {
 	return isAuthenticated;
 };
 
-export const useLogin = location => {
+export const useLogin = (location, path = "") => {
 	const { client, isAuthenticated } = useAuth();
 	const isInitialized = !!client;
 
 	useEffect(() => {
 		if (isInitialized && !isAuthenticated) {
 			client.loginWithRedirect({
-				redirect_uri: `${location?.origin}`,
+				redirect_uri: `${location?.origin}${path}`,
 				appState: location?.href
 			});
 		}
-	}, [client, isAuthenticated, isInitialized, location]);
+	}, [client, isAuthenticated, isInitialized, location, path]);
 
 	return isAuthenticated;
 };
