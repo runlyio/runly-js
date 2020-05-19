@@ -1,7 +1,7 @@
 {
   "name": "@runly/example-html",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Example HTML app that incorporates the Vanilla JS components",
   "sideEffects": false,
   "scripts": {
