@@ -5,8 +5,8 @@ import useLocalStorage from "../local-storage";
 import Layout from "../layout";
 import RunForm from "../run-form";
 
-import { useLogin } from "@runly/core";
-import { RunProgress } from "@runly/react-bootstrap";
+import { useLogin } from "@runly/ui";
+import { RunProgress } from "@runly/bootstrap";
 
 import "bootstrap/dist/css/bootstrap.css";
 

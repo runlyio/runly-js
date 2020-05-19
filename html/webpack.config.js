@@ -25,7 +25,7 @@ module.exports = {
 				include: [
 					path.resolve("./src"),
 					path.resolve("../core/src"),
-					path.resolve("../react-bootstrap/src")
+					path.resolve("../bootstrap/src")
 				]
 			}
 		]

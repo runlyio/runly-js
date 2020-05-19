@@ -1,15 +1,16 @@
-# Runly.js
+# Runly UI
 
 > Javascript components to connect to Runly
 
 This repository is a monorepo for all of the JS component libraries that connect to runly. It currently contains:
 
 * [`core`](./core): Core components to connect to Runly
-* [`react-bootstrap`](./react-bootstrap): [Bootstrap](https://getbootstrap.com/)-styled react components to connect to Runly
+* [`bootstrap`](./bootstrap): [Bootstrap](https://getbootstrap.com/)-styled react components to connect to Runly
+* [`material`](./material): Runly components implemented with [Material UI](https://material-ui.com/)
 * [`html`](./html): Prebuilt script that can be dropped on any HTML page to include Runly components
 * [Examples](./examples): Example applications that incorporate each set of runly.js components
 
-[Learn how to integrate runly.js](https://www.runly.io/docs/integration/js/) into your application.
+[Learn how to integrate Runly UI](https://www.runly.io/docs/integration/js/) into your application.
 
 ## :ledger: Release Notes
 

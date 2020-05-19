@@ -1,7 +1,7 @@
 import React from "react";
 import { navigate } from "gatsby";
 
-import { AuthProvider, RunlyProvider } from "@runly/core";
+import { AuthProvider, RunlyProvider } from "@runly/ui";
 
 const Wrapper = ({ element }) => (
 	<AuthProvider clientId="wiqAwis2QTq0R2ewggis6cnUntp6JGm1" navigate={navigate}>

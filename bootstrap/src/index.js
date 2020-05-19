@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Helmet from "react-helmet";
 
-export { RunlyProvider } from "@runly/core";
+export { RunlyProvider } from "@runly/ui";
 
 export { default as RunProgress } from "./progress";
 export { default as OrgChooser } from "./org-chooser";

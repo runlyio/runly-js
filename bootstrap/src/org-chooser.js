@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 
-import { useFetchOrgAccounts } from "@runly/core";
+import { useFetchOrgAccounts } from "@runly/ui";
 
 const OrgChooser = ({ onChange, ...props }) => {
 	const { isFetched, body: orgs } = useFetchOrgAccounts();

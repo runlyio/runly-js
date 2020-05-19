@@ -8,7 +8,7 @@ import {
 	CircularProgress
 } from "@material-ui/core";
 
-import { useFetchOrgAccounts } from "@runly/core";
+import { useFetchOrgAccounts } from "@runly/ui";
 
 const OrgChooser = ({ onChange, value, ...props }) => {
 	const { isFetched, body: orgs } = useFetchOrgAccounts();

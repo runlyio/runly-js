@@ -1,8 +1,8 @@
 {
   "packages": [
     "core",
-    "react-bootstrap",
-    "react-material",
+    "bootstrap",
+    "material",
     "html",
     "examples/gatsby",
     "examples/html"

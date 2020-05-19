@@ -1,6 +1,6 @@
 {
-  "name": "@runly/core",
-  "version": "0.3.1",
+  "name": "@runly/ui",
+  "version": "0.1.0",
   "description": "Core components to connect to Runly",
   "main": "lib/index.js",
   "module": "src/index.js",

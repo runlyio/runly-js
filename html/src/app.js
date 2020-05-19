@@ -14,7 +14,7 @@ if (matchedEls.length) {
 async function initRunlyComponents() {
 	let componentsToRender = [];
 	let runlyToken;
-	const RunlyComponents = await import("@runly/react-bootstrap");
+	const RunlyComponents = await import("@runly/bootstrap");
 	const React = await import("react");
 	const ReactDOM = await import("react-dom");
 

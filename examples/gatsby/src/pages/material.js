@@ -2,8 +2,8 @@ import React from "react";
 
 import Layout from "../layout";
 
-import { useLogin } from "@runly/core";
-import { RunProgress } from "@runly/react-material";
+import { useLogin } from "@runly/ui";
+import { RunProgress } from "@runly/material";
 
 const MaterialPage = ({ location }) => {
 	const isAuthenticated = useLogin(location);

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useRunConnection, ProgressText } from "@runly/core";
+import { useRunConnection, ProgressText } from "@runly/ui";
 
 import { startCase } from "lodash";
 

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { OrgChooser } from "@runly/react-bootstrap";
+import { OrgChooser } from "@runly/bootstrap";
 
 const RunForm = ({ onSubmit }) => {
 	const [org, setOrg] = useState("");

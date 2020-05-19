@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 
-import { useRequeueRun } from "@runly/core";
+import { useRequeueRun } from "@runly/ui";
 
 const RetryRun = ({ org, run, onRequeued }) => {
 	const {
