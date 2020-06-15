@@ -7,18 +7,15 @@ const useRunConnection = (org, runId) => {
 	const [run, setRun] = useState();
 	const { url, token } = useConfig();
 
-	const { connection, ...connectionState } = useChannel(
-		`${url}/${org}/runs/${runId}/channel`,
-		token
-	);
+	const channel = useChannel(`${url}/${org}/runs/${runId}/channel`, token);
 
 	useEffect(() => {
-		if (connection) {
-			connection.on("RunStatus", run => setRun(run));
+		if (channel.connection) {
+			channel.connection.on("RunStatus", run => setRun(run));
 		}
-	}, [connection]);
+	}, [channel.connection]);
 
-	return { run, ...connectionState };
+	return { run, ...channel };
 };
 
 export default useRunConnection;
