@@ -1,6 +1,6 @@
 {
   "name": "@runly/material",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Runly react components implemented with Material UI",
   "main": "lib/index.js",
   "module": "src/index.js",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://www.runly.io/docs/integration/js/react-material/",
   "dependencies": {
-    "@runly/ui": "^0.1.2",
+    "@runly/ui": "^0.1.3",
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
