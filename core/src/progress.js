@@ -13,13 +13,17 @@ const ProgressText = ({ progress, component, ...props }) => {
 
 	if (success && success === total) {
 		return (
-			<Component {...props}>{formatNumber(success)} successful item{success === 1 ? "" : "s"}</Component>
+			<Component {...props}>
+				{formatNumber(success)} successful item{success === 1 ? "" : "s"}
+			</Component>
 		);
 	}
 
 	if (failed && failed === total) {
 		return (
-			<Component {...props}>{formatNumber(failed)} failed item{failed === 1 ? "" : "s"}</Component>
+			<Component {...props}>
+				{formatNumber(failed)} failed item{failed === 1 ? "" : "s"}
+			</Component>
 		);
 	}
 
