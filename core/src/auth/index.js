@@ -19,7 +19,7 @@ export const useLogin = (location, path = "") => {
 		if (isInitialized && !isAuthenticated) {
 			client.loginWithRedirect({
 				redirect_uri: `${location?.origin}${path}`,
-				appState: location?.href
+				appState: location?.path
 			});
 		}
 	}, [client, isAuthenticated, isInitialized, location, path]);

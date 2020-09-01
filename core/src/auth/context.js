@@ -53,7 +53,7 @@ export const Provider = ({
 				const { appState } = await c.handleRedirectCallback();
 				setAuth({ client: c, isAuthenticated: true });
 
-				if (appState && navigate) navigate(appState);
+				if (navigate) navigate(appState || "/");
 			} else {
 				const isAuthenticated = await c.isAuthenticated();
 				setAuth({ client: c, isAuthenticated });
