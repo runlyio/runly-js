@@ -12,19 +12,11 @@ const ProgressText = ({ progress, component, ...props }) => {
 	let text = "";
 
 	if (success && success === total) {
-		return (
-			<Component {...props}>
-				{formatNumber(success)} successful item{success === 1 ? "" : "s"}
-			</Component>
-		);
+		return <Component {...props}>{formatNumber(success)} successful</Component>;
 	}
 
 	if (failed && failed === total) {
-		return (
-			<Component {...props}>
-				{formatNumber(failed)} failed item{failed === 1 ? "" : "s"}
-			</Component>
-		);
+		return <Component {...props}>{formatNumber(failed)} failed</Component>;
 	}
 
 	if (success) {
@@ -41,9 +33,9 @@ const ProgressText = ({ progress, component, ...props }) => {
 
 	if (total) {
 		if (text) {
-			text += ` out of ${formatNumber(total)}`;
+			text += ` of ${formatNumber(total)}`;
 		} else {
-			text += `${formatNumber(total)} unprocessed`;
+			text += `0 of ${formatNumber(total)}`;
 		}
 	}
 

@@ -1,34 +1,26 @@
 import React, { useState, useCallback } from "react";
 import { useRunConnection, ProgressText } from "@runly/ui";
 
-import { startCase } from "lodash";
-
-import LoadingIndicator from "./loading";
 import RetryButton from "./retry";
 
-const RunProgress = ({ org, runId, allowRetry = true }) => {
+const RunProgress = ({ org, runId, allowRetry = false }) => {
 	const [retryRunId, setRetryRunId] = useState();
 	const onRequeued = useCallback(r => setRetryRunId(r.id), []);
 
 	const { run } = useRunConnection(org, retryRunId || runId);
 
 	if (!run) {
-		return <LoadingIndicator />;
-	}
-
-	if (isProgressEmpty(run.progress)) {
-		return (
-			<h4>
-				<span className={`badge badge${typeFromStatus(run.state)}`}>
-					{startCase(run.state)}
-				</span>
-			</h4>
-		);
+		return <Indeterminant />;
 	}
 
 	return (
 		<>
-			<ProgressBar run={run} />
+			<ProgressBar isRunning={run.state == "Running"} progress={run.progress} />
+			<ProgressText
+				progress={run.progress}
+				component="small"
+				className="text-muted"
+			/>
 			{allowRetry ? (
 				<p>
 					<RetryButton {...{ org, run, onRequeued }} />
@@ -38,30 +30,40 @@ const RunProgress = ({ org, runId, allowRetry = true }) => {
 	);
 };
 
-const ProgressBar = ({ run }) => {
-	return (
-		<>
-			<div className="progress">
-				<Progress
-					isRunning={run.state == "Running"}
-					isSuccess
-					value={run.progress.success}
-					total={run.progress.total}
-				/>
-				<Progress
-					isRunning={run.state == "Running"}
-					value={run.progress.failed}
-					total={run.progress.total}
-				/>
-			</div>
-			<ProgressText
-				progress={run.progress}
-				component="small"
-				className="text-muted"
+const ProgressBar = ({ isRunning, progress }) => {
+	if (isProgressEmpty(progress)) {
+		return <Indeterminant />;
+	}
+
+	const { success, failed, total } = progress;
+
+	if (!total) {
+		return (
+			<Indeterminant
+				className={`${failed ? "bg-danger" : success ? "bg-success" : ""}`}
 			/>
-		</>
+		);
+	}
+
+	return (
+		<div className="progress">
+			<Progress isRunning={isRunning} isSuccess value={success} total={total} />
+			<Progress isRunning={isRunning} value={failed} total={total} />
+		</div>
 	);
 };
+
+const Indeterminant = ({ className }) => (
+	<div className="progress">
+		<div
+			className={`progress-bar progress-bar-striped progress-bar-animated ${
+				className || ""
+			}`}
+			role="progressbar"
+			style={{ width: "100%" }}
+		></div>
+	</div>
+);
 
 const Progress = ({ isRunning, isSuccess, value, total }) => {
 	if (!value) return null;
@@ -81,27 +83,6 @@ const Progress = ({ isRunning, isSuccess, value, total }) => {
 		></div>
 	);
 };
-
-function typeFromStatus(runStatus) {
-	switch (runStatus) {
-		case "Enqueued":
-			return "-secondary";
-		case "Running":
-			return "-primary";
-		case "Successful":
-			return "-success";
-		case "Failed":
-			return "-danger";
-		case "Cancelled":
-			return "-warning";
-		case "TimedOut":
-			return "-danger";
-		case "Error":
-			return "-danger";
-		default:
-			return "";
-	}
-}
 
 function isProgressEmpty(progress) {
 	if (!progress) return true;
