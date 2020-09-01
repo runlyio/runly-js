@@ -7,6 +7,6 @@ export const useFetchOrgAccounts = () => {
 
 	return useFetch(url && token ? `${url}/account/orgs/` : null, {
 		method: "GET",
-		token
+		bearerToken: token
 	});
 };

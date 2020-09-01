@@ -9,7 +9,7 @@ export const useRequeueRun = (org, runId) => {
 		url && token && org && runId ? `${url}/${org}/runs/${runId}` : null,
 		{
 			method: "POST",
-			token
+			bearerToken: token
 		}
 	);
 };
