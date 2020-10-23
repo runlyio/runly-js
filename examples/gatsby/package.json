@@ -1,7 +1,7 @@
 {
   "name": "@runly/example-gatsby",
   "private": true,
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Example Gatsby app that incorporates each set of Runly components",
   "sideEffects": false,
   "scripts": {
@@ -21,9 +21,9 @@
   "homepage": "https://js.runly.io/",
   "dependencies": {
     "@material-ui/core": "^4.9.9",
-    "@runly/bootstrap": "^0.2.0",
-    "@runly/material": "^0.1.5",
-    "@runly/ui": "^0.1.5",
+    "@runly/bootstrap": "^0.3.0",
+    "@runly/material": "^0.2.0",
+    "@runly/ui": "^0.2.0",
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
