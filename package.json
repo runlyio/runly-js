@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "release": "lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
